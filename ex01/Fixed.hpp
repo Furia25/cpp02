@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/15 15:29:06 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/11/15 15:27:32 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ class Fixed
 public:
 	Fixed();
 	Fixed(const Fixed &other);
-	Fixed(const int n);
-	Fixed(const float n);
 	Fixed	&operator=(const Fixed &other);
 	~Fixed();
 	/* methods */
