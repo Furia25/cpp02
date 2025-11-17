@@ -23,6 +23,13 @@ Fixed::Fixed(const Fixed& other)
 	*this = other;
 };
 
+Fixed	&Fixed::operator=(const Fixed& other)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_value = other._value;	
+	return (*this);
+}
+
 Fixed& Fixed::operator+=(const Fixed& other)
 {
 	this->_value += other._value;
@@ -47,11 +54,30 @@ Fixed& Fixed::operator/=(const Fixed& other)
 	return (*this);
 }
 
-Fixed	&Fixed::operator=(const Fixed& other)
+Fixed &Fixed::operator++()
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	this->_value = other._value;	
+	++_value;
 	return (*this);
+}
+
+Fixed &Fixed::operator--()
+{
+	--_value;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed temp(*this);
+	++(*this);
+	return (temp);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed temp(*this);
+	--(*this);
+	return (temp);
 }
 
 Fixed::~Fixed()

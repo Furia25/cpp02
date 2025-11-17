@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/17 19:28:50 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/11/17 19:44:42 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ public:
 	Fixed&			operator-=(const Fixed& other);
 	Fixed&			operator*=(const Fixed& other);
 	Fixed&			operator/=(const Fixed& other);
+	Fixed&			operator++();
+	Fixed			operator++(int);
+	Fixed&			operator--();
+	Fixed			operator--(int);
 	
 private:
 	/* data */
