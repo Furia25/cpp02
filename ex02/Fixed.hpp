@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/17 19:19:38 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/11/17 19:28:50 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,31 @@ public:
 	float			toFloat(void) const;
 	int				toInt(void) const;
 	/*Operators overload*/
-	Fixed&			operator=(const Fixed& other);
+	Fixed&			operator= (const Fixed& other);
+	Fixed&			operator+=(const Fixed& other);
+	Fixed&			operator-=(const Fixed& other);
+	Fixed&			operator*=(const Fixed& other);
+	Fixed&			operator/=(const Fixed& other);
+	
 private:
 	/* data */
 	static const int	_mask = DEFAULT_MASK;
 	int					_value;
 };
 
+bool			operator< (const Fixed& l, const Fixed& r);
+bool			operator> (const Fixed& l, const Fixed& r);
+bool			operator<=(const Fixed& l, const Fixed& r);
+bool			operator>=(const Fixed& l, const Fixed& r);
+bool			operator==(const Fixed& l, const Fixed& r);
+bool			operator!=(const Fixed& l, const Fixed& r);
+
+Fixed			operator+ (const Fixed& l, const Fixed& r);
+Fixed			operator- (const Fixed& l, const Fixed& r);
+Fixed			operator* (const Fixed& l, const Fixed& r);
+Fixed			operator/ (const Fixed& l, const Fixed& r);
+
 std::ostream&	operator<<(std::ostream& os, const Fixed& obj);
+
 
 #endif // FIXED_HPP

@@ -17,13 +17,13 @@ Fixed::Fixed(const float value)
 	this->_value = (int)(roundf(value * (1 << this->_mask)));
 }
 
-Fixed::Fixed(const Fixed &other)
+Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 };
 
-Fixed	&Fixed::operator=(const Fixed &other)
+Fixed	&Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = other._value;	
@@ -57,7 +57,7 @@ int Fixed::toInt(void) const
 	return (this->_value >> this->_mask);
 }
 
-std::ostream&	operator<<(std::ostream& os, const Fixed &obj)
+std::ostream&	operator<<(std::ostream& os, const Fixed& obj)
 {
 	os << obj.toFloat();
 	return (os);
