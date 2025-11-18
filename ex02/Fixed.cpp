@@ -44,40 +44,68 @@ Fixed& Fixed::operator-=(const Fixed& other)
 
 Fixed& Fixed::operator*=(const Fixed& other)
 {
-	this->_value *= other._value;
+	this->_value *= other.toFloat();
 	return (*this);
 }
 
 Fixed& Fixed::operator/=(const Fixed& other)
 {
-	this->_value /= other._value;
+	this->_value /= other.toFloat();
 	return (*this);
 }
 
-Fixed &Fixed::operator++()
+Fixed& Fixed::operator++()
 {
 	++_value;
 	return (*this);
 }
 
-Fixed &Fixed::operator--()
+Fixed& Fixed::operator--()
 {
 	--_value;
 	return (*this);
 }
 
-Fixed Fixed::operator++(int)
+Fixed	Fixed::operator++(int)
 {
-	Fixed temp(*this);
+	Fixed	temp(*this);
 	++(*this);
 	return (temp);
 }
 
-Fixed Fixed::operator--(int)
+Fixed	Fixed::operator--(int)
 {
-	Fixed temp(*this);
+	Fixed	temp(*this);
 	--(*this);
 	return (temp);
+}
+
+Fixed&	Fixed::min(Fixed& l, Fixed& r)
+{
+	if (l > r)
+		return (r);
+	return (l);
+}
+
+const Fixed&	Fixed::min(const Fixed& l, const Fixed& r)
+{
+	if (l > r)
+		return (r);
+	return (l);
+}
+
+Fixed&	Fixed::max(Fixed& l, Fixed& r)
+{
+	if (l >= r)
+		return (l);
+	return (r);
+}
+
+const Fixed&	Fixed::max(const Fixed& l, const Fixed& r)
+{
+	if (l >= r)
+		return (l);
+	return (r);
 }
 
 Fixed::~Fixed()
@@ -145,30 +173,30 @@ bool operator!=(const Fixed& l, const Fixed& r)
 	return (!(l == r));
 }
 
-Fixed operator+(const Fixed &l, const Fixed &r)
+Fixed	operator+(const Fixed& l, const Fixed& r)
 {
-	Fixed result = l;
+	Fixed	result = l;
 	result += r;
 	return (result);
 }
 
-Fixed operator-(const Fixed &l, const Fixed &r)
+Fixed	operator-(const Fixed& l, const Fixed& r)
 {
-	Fixed result = l;
+	Fixed	result = l;
 	result -= r;
 	return (result);
 }
 
-Fixed operator*(const Fixed &l, const Fixed &r)
+Fixed	operator*(const Fixed& l, const Fixed& r)
 {
-	Fixed result = l;
+	Fixed	result = l;
 	result *= r;
 	return (result);
 }
 
-Fixed operator/(const Fixed &l, const Fixed &r)
+Fixed	operator/(const Fixed& l, const Fixed& r)
 {
-	Fixed result = l;
+	Fixed	result = l;
 	result /= r;
 	return (result);
 }

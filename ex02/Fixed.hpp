@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/17 19:44:42 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/11/18 15:32:04 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,25 @@ public:
 	Fixed(const Fixed& other);
 	~Fixed();
 	/* methods */
-	int				getRawBits(void) const;
-	void			setRawBits(int const raw);
-	float			toFloat(void) const;
-	int				toInt(void) const;
+	int					getRawBits(void) const;
+	void				setRawBits(int const raw);
+	float				toFloat(void) const;
+	int					toInt(void) const;
 	/*Operators overload*/
-	Fixed&			operator= (const Fixed& other);
-	Fixed&			operator+=(const Fixed& other);
-	Fixed&			operator-=(const Fixed& other);
-	Fixed&			operator*=(const Fixed& other);
-	Fixed&			operator/=(const Fixed& other);
-	Fixed&			operator++();
-	Fixed			operator++(int);
-	Fixed&			operator--();
-	Fixed			operator--(int);
-	
+	Fixed&				operator= (const Fixed& other);
+	Fixed&				operator+=(const Fixed& other);
+	Fixed&				operator-=(const Fixed& other);
+	Fixed&				operator*=(const Fixed& other);
+	Fixed&				operator/=(const Fixed& other);
+	Fixed&				operator++();
+	Fixed				operator++(int);
+	Fixed&				operator--();
+	Fixed				operator--(int);
+	/*Function overload*/
+	static Fixed&		min(Fixed& l, Fixed& r);
+	static const Fixed&	min(const Fixed& l, const Fixed& r);
+	static Fixed&		max(Fixed& l, Fixed& r);
+	static const Fixed&	max(const Fixed& l, const Fixed& r);
 private:
 	/* data */
 	static const int	_mask = DEFAULT_MASK;
