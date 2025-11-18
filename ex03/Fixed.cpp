@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:26:42 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/18 16:26:43 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/11/18 17:26:44 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,40 @@
 
 Fixed::Fixed() : _value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "Default constructor called" << std::endl;
+	#endif
 };
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "Int constructor called" << std::endl;
+	#endif
 	this->_value = value << this->_mask;
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "Float constructor called" << std::endl;
+	#endif
 	this->_value = (int)(roundf(value * (1 << this->_mask)));
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "Copy constructor called" << std::endl;
+	#endif
 	*this = other;
 };
 
 Fixed	&Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "Copy assignment operator called" << std::endl;
+	#endif
 	this->_value = other._value;	
 	return (*this);
 }
@@ -122,18 +132,24 @@ const Fixed&	Fixed::max(const Fixed& l, const Fixed& r)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "Destructor called" << std::endl;
+	#endif
 }
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "getRawBits member function called" << std::endl;
+	#endif
 	return (this->_value);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	#if DEBUG_MESSAGE == true
+		std::cout << "setRawBits member function called" << std::endl;
+	#endif
 	this->_value = raw;
 }
 

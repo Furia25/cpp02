@@ -9,14 +9,14 @@ else
 endif
 
 CC = c++
-NAME = fixed_test
+NAME = bsp
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 BIN_DIR = ./
 SRC_DIR = ./
 OBJ_DIR = .obj
 
-SRC = Fixed.cpp main.cpp
+SRC = bsp.cpp Fixed.cpp Point.cpp main.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEP = $(OBJ:.o=.d)

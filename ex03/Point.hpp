@@ -26,4 +26,6 @@ private:
 	Point		operator/ (const Point& other);
 };
 
+bool	bsp(const Point a, const Point b, const Point c, const Point point);
+
 #endif // POINT_HPP

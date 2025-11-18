@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:26:38 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/18 16:54:52 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/11/18 17:22:02 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ Point::Point(const Fixed x, Fixed y) : _x(x), _y(y) {}
 Point::Point(const Point& other) : _x(other._x), _y(other._y) {}
 
 Point::~Point() {}
+
+const Fixed &Point::getX(void) const
+{
+	return (_x);
+}
+
+const Fixed &Point::getY(void) const
+{
+	return (_y);
+}
 
 Point&	Point::operator=(const Point &other)
 {
