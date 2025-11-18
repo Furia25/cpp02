@@ -1,0 +1,214 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/18 16:26:42 by vdurand           #+#    #+#             */
+/*   Updated: 2025/11/18 16:26:43 by vdurand          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+Fixed::Fixed() : _value(0)
+{
+	std::cout << "Default constructor called" << std::endl;
+};
+
+Fixed::Fixed(const int value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_value = value << this->_mask;
+}
+
+Fixed::Fixed(const float value)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_value = (int)(roundf(value * (1 << this->_mask)));
+}
+
+Fixed::Fixed(const Fixed& other)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = other;
+};
+
+Fixed	&Fixed::operator=(const Fixed& other)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_value = other._value;	
+	return (*this);
+}
+
+Fixed& Fixed::operator+=(const Fixed& other)
+{
+	this->_value += other._value;
+	return (*this);
+}
+
+Fixed& Fixed::operator-=(const Fixed& other)
+{
+	this->_value -= other._value;
+	return (*this);
+}
+
+Fixed& Fixed::operator*=(const Fixed& other)
+{
+	this->_value *= other.toFloat();
+	return (*this);
+}
+
+Fixed& Fixed::operator/=(const Fixed& other)
+{
+	this->_value /= other.toFloat();
+	return (*this);
+}
+
+Fixed& Fixed::operator++()
+{
+	++_value;
+	return (*this);
+}
+
+Fixed& Fixed::operator--()
+{
+	--_value;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp(*this);
+	++(*this);
+	return (temp);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp(*this);
+	--(*this);
+	return (temp);
+}
+
+Fixed&	Fixed::min(Fixed& l, Fixed& r)
+{
+	if (l > r)
+		return (r);
+	return (l);
+}
+
+const Fixed&	Fixed::min(const Fixed& l, const Fixed& r)
+{
+	if (l > r)
+		return (r);
+	return (l);
+}
+
+Fixed&	Fixed::max(Fixed& l, Fixed& r)
+{
+	if (l >= r)
+		return (l);
+	return (r);
+}
+
+const Fixed&	Fixed::max(const Fixed& l, const Fixed& r)
+{
+	if (l >= r)
+		return (l);
+	return (r);
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+int	Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return (this->_value);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_value = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+	return (this->_value / (float)(1 << this->_mask));
+}
+
+int Fixed::toInt(void) const
+{
+	return (this->_value >> this->_mask);
+}
+
+/* ---------- Non Member ---------- */
+
+std::ostream&	operator<<(std::ostream& os, const Fixed& obj)
+{
+	os << obj.toFloat();
+	return (os);
+}
+
+bool operator<(const Fixed& l, const Fixed& r)
+{
+	return (l.getRawBits() < r.getRawBits());
+}
+
+bool operator>(const Fixed& l, const Fixed& r)
+{
+	return (l < r);
+}
+
+bool operator<=(const Fixed& l, const Fixed& r)
+{
+	return (!(l > r));
+}
+
+bool operator>=(const Fixed& l, const Fixed& r)
+{
+	return (!(l < r));
+}
+
+bool operator==(const Fixed& l, const Fixed& r)
+{
+	return (l.getRawBits() == r.getRawBits());
+}
+
+bool operator!=(const Fixed& l, const Fixed& r)
+{
+	return (!(l == r));
+}
+
+Fixed	operator+(const Fixed& l, const Fixed& r)
+{
+	Fixed	result = l;
+	result += r;
+	return (result);
+}
+
+Fixed	operator-(const Fixed& l, const Fixed& r)
+{
+	Fixed	result = l;
+	result -= r;
+	return (result);
+}
+
+Fixed	operator*(const Fixed& l, const Fixed& r)
+{
+	Fixed	result = l;
+	result *= r;
+	return (result);
+}
+
+Fixed	operator/(const Fixed& l, const Fixed& r)
+{
+	Fixed	result = l;
+	result /= r;
+	return (result);
+}
