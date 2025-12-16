@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/17 19:19:38 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/16 17:09:14 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ public:
 	/*Operators overload*/
 	Fixed&			operator=(const Fixed& other);
 private:
-	/* data */
 	static const int	_mask = DEFAULT_MASK;
 	int					_value;
 };
