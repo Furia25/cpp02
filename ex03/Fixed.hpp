@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/18 17:28:08 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/16 17:18:58 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ public:
 	Fixed				operator++(int);
 	Fixed&				operator--();
 	Fixed				operator--(int);
-	/*Function overload*/
+	/*Function shadowing*/
 	static Fixed&		min(Fixed& l, Fixed& r);
 	static const Fixed&	min(const Fixed& l, const Fixed& r);
 	static Fixed&		max(Fixed& l, Fixed& r);
 	static const Fixed&	max(const Fixed& l, const Fixed& r);
 private:
 	/* data */
-	static const int	_mask = DEFAULT_MASK;
+	static const int	_mask;
 	int					_value;
 };
 
@@ -66,6 +66,5 @@ Fixed			operator* (const Fixed& l, const Fixed& r);
 Fixed			operator/ (const Fixed& l, const Fixed& r);
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& obj);
-
 
 #endif // FIXED_HPP

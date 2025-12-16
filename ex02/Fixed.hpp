@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/18 15:32:04 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/16 17:19:56 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
 	static const Fixed&	max(const Fixed& l, const Fixed& r);
 private:
 	/* data */
-	static const int	_mask = DEFAULT_MASK;
+	static const int	_mask;
 	int					_value;
 };
 

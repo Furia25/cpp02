@@ -6,11 +6,13 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:26:42 by vdurand           #+#    #+#             */
-/*   Updated: 2025/11/18 17:26:44 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/16 17:19:34 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int Fixed::_mask = DEFAULT_MASK;
 
 Fixed::Fixed() : _value(0)
 {
