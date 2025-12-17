@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:26:42 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/17 15:51:12 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 15:59:39 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ Fixed::Fixed(const Fixed& other)
 	#endif
 	*this = other;
 };
+
+Fixed::~Fixed()
+{
+	#if DEBUG_MESSAGE == true
+		std::cout << "Destructor called" << std::endl;
+	#endif
+}
 
 Fixed	&Fixed::operator=(const Fixed& other)
 {
@@ -132,13 +139,6 @@ const Fixed&	Fixed::max(const Fixed& l, const Fixed& r)
 	return (r);
 }
 
-Fixed::~Fixed()
-{
-	#if DEBUG_MESSAGE == true
-		std::cout << "Destructor called" << std::endl;
-	#endif
-}
-
 int	Fixed::getRawBits(void) const
 {
 	#if DEBUG_MESSAGE == true
@@ -180,7 +180,7 @@ bool operator<(const Fixed& l, const Fixed& r)
 
 bool operator>(const Fixed& l, const Fixed& r)
 {
-	return (l < r);
+	return (r < l);
 }
 
 bool operator<=(const Fixed& l, const Fixed& r)

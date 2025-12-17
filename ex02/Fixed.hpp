@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/17 15:40:38 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 16:00:20 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # define FIXED_DEFAULT_MASK	8
+# define DEBUG_MESSAGE	true
 
 # include <iostream>
 # include <cmath>
