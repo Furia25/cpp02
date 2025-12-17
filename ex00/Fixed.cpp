@@ -6,13 +6,13 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:15:33 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/16 17:19:44 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 15:37:23 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-const int Fixed::_mask = DEFAULT_MASK;
+const int Fixed::_mask = FIXED_DEFAULT_MASK;
 
 Fixed::Fixed() : _value(0)
 {
@@ -25,16 +25,16 @@ Fixed::Fixed(const Fixed& other)
 	*this = other;
 };
 
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
 Fixed	&Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_value = other.getRawBits();	
 	return (*this);
-}
-
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits(void) const
