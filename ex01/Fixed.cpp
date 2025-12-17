@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:15:26 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/17 15:37:23 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 15:49:36 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_value = (int)(roundf(value * (1 << this->_mask)));
+	this->_value = static_cast<int>(roundf(value * (1 << this->_mask)));
 }
 
 Fixed::Fixed(const Fixed& other)

@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:26:42 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/17 15:37:23 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 15:51:12 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::Fixed(const float value)
 	#if DEBUG_MESSAGE == true
 		std::cout << "Float constructor called" << std::endl;
 	#endif
-	this->_value = (int)(roundf(value * (1 << this->_mask)));
+	this->_value = static_cast<int>(roundf(value * (1 << this->_mask)));
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -157,7 +157,7 @@ void	Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return (this->_value / (float)(1 << this->_mask));
+	return (this->_value / static_cast<float>(1 << this->_mask));
 }
 
 int Fixed::toInt(void) const

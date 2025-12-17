@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 14:31:47 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/17 15:37:23 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 15:40:38 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	~Fixed();
 	/* methods */
 	int					getRawBits(void) const;
-	void				setRawBits(int const raw);
+	void				setRawBits(const int raw);
 	float				toFloat(void) const;
 	int					toInt(void) const;
 	/*Operators overload*/

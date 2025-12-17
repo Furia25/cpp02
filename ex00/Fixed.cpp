@@ -6,7 +6,7 @@
 /*   By: vdurand <vdurand@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 17:15:33 by vdurand           #+#    #+#             */
-/*   Updated: 2025/12/17 15:37:23 by vdurand          ###   ########.fr       */
+/*   Updated: 2025/12/17 15:40:08 by vdurand          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	Fixed::getRawBits(void) const
 	return (this->_value);
 }
 
-void	Fixed::setRawBits(int const raw)
+void	Fixed::setRawBits(const int raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
